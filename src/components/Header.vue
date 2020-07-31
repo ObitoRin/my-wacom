@@ -1,5 +1,5 @@
 <template>
-    <section class="header">
+    <header>
         <div class="top-box">
             <div class="left">
                 <span>欢迎来到Wacom官方商城！</span>
@@ -30,7 +30,7 @@
                 </ul>
             </div>
         </div>
-    </section>
+    </header>
 </template>
 
 <script>
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .header{
+    header{
         background: #000;
 
         .top-box{

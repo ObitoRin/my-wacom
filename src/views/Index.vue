@@ -5,7 +5,6 @@
             <div class="logo">
                 <h1>
                     <a href="javascript:;">wacom</a>
-                    <img src="../../public/img/index/logo.png">
                 </h1>
             </div>
         </nav>
@@ -29,13 +28,11 @@ export default {
         display: flex;
         h1{
             a{
-                display: inline-block;
+                display: block;
                 width: 100%;
                 height: 100%;
-                text-indent: -999em;
-            }
-            img{
-                cursor: pointer;
+                font-size: 0;
+                background: url(../../public/img/index/logo.png);
             }
         }
     }
