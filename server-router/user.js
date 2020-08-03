@@ -21,7 +21,7 @@ router.post('/login', (req, res) => {
     // res.send('111') 
 
     //设置服务器响应头信息 解决跨域问题
-    res.set('Access-Control-Allow-Origin', 'http://localhost:8081')
+    res.set('Access-Control-Allow-Origin', 'http://localhost:8080')
     pool.query(sql, [uname, upwd], (err, result)=>{
         if(err) throw err
         console.log(result)
@@ -45,7 +45,7 @@ router.post('/register', (req, res)=>{
         if(err) throw err
         //数据库表中发生变化：改变了几行
         if(result.affectedRows > 0){
-            res.set('Access-Control-Allow-Origin', 'http://localhost:8081')
+            res.set('Access-Control-Allow-Origin', 'http://localhost:8080')
             res.send({code: '200', msg: 'success'})
         }else{
             res.send({code: '500', msg: 'fail'})

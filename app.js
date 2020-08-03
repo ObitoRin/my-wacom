@@ -15,6 +15,8 @@ app.listen(3000, () => {
     console.log('服务器已开启')
 })
 
+//托管public目录下的静态资源文件，以服务器的方式打开静态文件资源
+app.use(express.static('public'))
 
 //使用中间件，将post请求的数据解析为对象
 app.use(bodyParser.urlencoded({

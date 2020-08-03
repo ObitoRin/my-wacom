@@ -8,15 +8,18 @@
                 </h1>
             </div>
         </nav>
+        <Footer></Footer>
     </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 export default {
     name: 'top',
     components:{
-       Header
+       Header,
+       Footer
     }
 }
 </script>
