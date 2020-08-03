@@ -72,23 +72,24 @@
                         <li><a href="javascript:;"></a></li>
                     </ul>
                 </div>
-
+                <div class="share" v-show="share">
+                    <ul>
+                        <li><span @mouseenter="shareHandle">分享到</span></li>
+                        <li><a href="javascript:;">一键分享</a><a href="javascript:;">QQ空间</a></li>
+                        <li><a href="javascript:;">新浪微博</a><a href="javascript:;">百度云收藏</a></li>
+                        <li><a href="javascript:;">人人网</a><a href="javascript:;">腾讯微博</a></li>
+                        <li><a href="javascript:;">百度相册</a><a href="javascript:;">开心网</a></li>
+                        <li><a href="javascript:;">腾讯朋友</a><a href="javascript:;">百度贴吧</a></li>
+                        <li><a href="javascript:;">豆瓣网</a><a href="javascript:;">搜狐微博</a></li>
+                        <li><a href="javascript:;">百度新首页</a><a href="javascript:;">QQ好友</a></li>
+                        <li><a href="javascript:;">和讯微博</a><a href="javascript:;">更多...</a></li>
+                        <li><a href="javascript:;">百度分享</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="share">
-                <ul>
-                    <li></li>
-                    <li><a href=""></a><a href=""></a></li>
-                    <li><a href=""></a><a href=""></a></li>
-                    <li><a href=""></a><a href=""></a></li>
-                    <li><a href=""></a><a href=""></a></li>
-                    <li><a href=""></a><a href=""></a></li>
-                    <li><a href=""></a><a href=""></a></li>
-                    <li><a href=""></a><a href=""></a></li>
-                    <li><a href=""></a><a href=""></a></li>
-                    <li><a href=""></a></li>
-                </ul>
-            </div>
+            
             <div class="f-b-bottom">
+
             </div>
 
         </section>
@@ -97,7 +98,19 @@
 <script>
 import '../../public/Iconfont/iconfont.js'
 export default {
-    
+    data(){
+        return {
+            share: false
+        }
+    },
+    methods:{
+        shareHandle(){
+            console.log('1')
+        }
+    },
+    mounted(){
+        this.shareHandle()
+    }
 }
 </script>
 
@@ -118,10 +131,8 @@ export default {
             }
             .f-t-left{
                 width: 60%;
-                display: flex;
-                
+                display: flex;                
                 ul{
-                  
                     margin-right: 45px;
                     text-align: center;
                     li:first-child{
@@ -142,13 +153,12 @@ export default {
                 }
             }
             .f-t-right{
-                width: 40%;
+                width: 20%;
                 display: flex;
                 justify-content: space-between;
                     ul{
                         width: 120px;
                         text-align: center;
-                        border: 1px solid salmon;
                         li:first-child{
                             display: flex;
                             align-items: center;
@@ -171,8 +181,10 @@ export default {
                                     color: #666666;
                                 }
                             }
-
                         }
+                    }
+                    ul:nth-child(2){
+                        padding-top: 5px;
                     }
             }
         }
@@ -182,6 +194,7 @@ export default {
             border: 1px solid yellowgreen;
             margin: 0 auto;
             .f-b-top{
+                position: relative;
                 display: flex;
                 justify-content: space-between;
                 .f-b-left{
@@ -216,6 +229,114 @@ export default {
                         li:nth-child(4){a{background-position: 0 -235px!important;}}
                         li:nth-child(5){a{background-position: 0 -195px!important;}}
                         li:nth-child(6){a{background-position: 0 -715px!important;}}
+                    }
+                }
+                .share{
+                    border: 1px solid skyblue;
+                    position: absolute;
+                    top: -265px;
+                    right: 0;
+                    z-index: 1;
+                    ul{
+                        background-color: #fff;
+                        a{
+                            color: #555555;
+                            font-size: 12px;
+                            border-radius: 4px;
+                        }
+                        li:first-child{
+                            width: 210px;
+                            border: 1px solid salmon;
+                            padding: 5px 0 5px 5px;
+                            background-color: #F6F6F6;
+                            span{
+                                color: #666666;
+                                font-size: 16px;
+                            }
+                        }
+                        li:not(:nth-child(1)){
+                            width: 210px;
+                            a{
+                                display: inline-block;
+                                width: 35%;
+                                border: 1px solid sandybrown;
+                                height: 17px;
+                                padding-left: 25px;
+                                margin-bottom: 5px;
+                                background: url(/img/index/is.png) no-repeat;
+                            }
+                            a:nth-child(2){
+                                margin-left: 9px;
+                            }
+                        }
+                    
+                        li:nth-child(2){
+                            a:nth-child(1){
+                                background-position: 0 -2075px!important;
+                            }
+                            a:nth-child(2){
+                                background-position: 0 -80px!important;
+                            }
+                        }
+                        li:nth-child(3){
+                            a:nth-child(1){
+                                background-position: 0 -120px!important;
+                            }
+                            a:nth-child(2){
+                                background-position: 0 -2554px!important;
+                            }
+                        }
+                        li:nth-child(4){
+                            a:nth-child(1){
+                                background-position: 0 -200px!important;
+                            }
+                            a:nth-child(2){
+                                background-position: 0 -240px!important;
+                            }
+                        }
+                        li:nth-child(5){
+                            a:nth-child(1){
+                                background-position: 0 -2195px!important;
+                            }
+                            a:nth-child(2){
+                                background-position: 0 -280px!important;
+                            }
+                        }
+                        li:nth-child(6){
+                            a:nth-child(1){
+                                background-position: 0 -320px!important;
+                            }
+                            a:nth-child(2){
+                                background-position: 0 -600px!important;
+                            }
+                        }
+                        li:nth-child(7){
+                            a:nth-child(1){
+                                background-position: 0 -400px!important;
+                            }
+                            a:nth-child(2){
+                                background-position: 0 -440px!important;
+                            }
+                        }
+                        li:nth-child(8){
+                            a:nth-child(1){
+                                background-position: 0 -160px!important;
+                            }
+                            a:nth-child(2){
+                                background-position: 0 -2235px!important;
+                            }
+                        }
+                        li:nth-child(9){
+                            a:nth-child(1){
+                                background-position: 0 -1835px!important;
+                            }
+                        }
+                        li:nth-child(10){
+                            text-align: right;
+                            a{
+                                padding-left: 0;
+                            }
+                        }
                     }
                 }
             }

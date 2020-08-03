@@ -8,6 +8,7 @@
                 </h1>
             </div>
         </nav>
+        <Fixed></Fixed>
         <Footer></Footer>
     </div>
 </template>
@@ -15,11 +16,13 @@
 <script>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import Fixed from '@/components/Fixed.vue'
 export default {
     name: 'top',
     components:{
        Header,
-       Footer
+       Footer,
+       Fixed
     }
 }
 </script>
