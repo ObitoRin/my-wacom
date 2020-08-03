@@ -64,7 +64,25 @@
                 </div>
                 <div class="f-b-right">
                     <ul>
-                        <li><span>分享到：</span></li>
+                        <li class="share-box">
+                            <span @mouseenter.stop="shareHandle" @mouseleave="leaveHandle">分享到</span>
+                            <!-- <div @mouseenter.stop="shareHandle" @mouseleave="leaveHandle">
+                                <div class="share" v-show="share">
+                                     <ul>
+                                        <li><p>分享到</p></li>
+                                        <li><a href="javascript:;">一键分享</a><a href="javascript:;">QQ空间</a></li>
+                                        <li><a href="javascript:;">新浪微博</a><a href="javascript:;">百度云收藏</a></li>
+                                        <li><a href="javascript:;">人人网</a><a href="javascript:;">腾讯微博</a></li>
+                                        <li><a href="javascript:;">百度相册</a><a href="javascript:;">开心网</a></li>
+                                        <li><a href="javascript:;">腾讯朋友</a><a href="javascript:;">百度贴吧</a></li>
+                                        <li><a href="javascript:;">豆瓣网</a><a href="javascript:;">搜狐微博</a></li>
+                                        <li><a href="javascript:;">百度新首页</a><a href="javascript:;">QQ好友</a></li>
+                                        <li><a href="javascript:;">和讯微博</a><a href="javascript:;">更多...</a></li>
+                                        <li><a href="javascript:;">百度分享</a></li>
+                                    </ul> 
+                                </div>
+                            </div> -->
+                        </li>
                         <li><a href="javascript:;"></a></li>
                         <li><a href="javascript:;"></a></li>
                         <li><a href="javascript:;"></a></li>
@@ -74,7 +92,7 @@
                 </div>
                 <div class="share" v-show="share">
                     <ul>
-                        <li><span @mouseenter="shareHandle">分享到</span></li>
+                        <li><span>分享到</span></li>
                         <li><a href="javascript:;">一键分享</a><a href="javascript:;">QQ空间</a></li>
                         <li><a href="javascript:;">新浪微博</a><a href="javascript:;">百度云收藏</a></li>
                         <li><a href="javascript:;">人人网</a><a href="javascript:;">腾讯微博</a></li>
@@ -87,9 +105,19 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="f-b-bottom">
-
+                <div>
+                    <img src="/img/index/logo2.png">
+                </div>
+                <div class="text">
+                    <ul>
+                        <li><a href="javascript:;">使用条款</a></li>
+                        <li><a href="javascript:;">隐私条款</a></li>
+                        <li><a href="javascript:;">Cookie Notice</a></li>
+                    </ul>
+                    <p>Copyright © 2018 estore.wacom.com.cn 和冠科技（北京）有限公司All Rights Reserved. 京ICP备13037713号</p>
+                    <p>为了给您提供更好的购物体验，推荐使用谷歌、360急速、IE10及以上版本浏览器访问本商城。</p>
+                </div>
             </div>
 
         </section>
@@ -105,7 +133,10 @@ export default {
     },
     methods:{
         shareHandle(){
-            console.log('1')
+            this.share = true
+        },
+        leaveHandle(){
+            this.share = false
         }
     },
     mounted(){
@@ -188,11 +219,12 @@ export default {
                     }
             }
         }
+        
         .f-bottom{
             width: 80%;
-            height: 225px;
             border: 1px solid yellowgreen;
             margin: 0 auto;
+            padding: 45px 0;
             .f-b-top{
                 position: relative;
                 display: flex;
@@ -204,7 +236,7 @@ export default {
                     }
                 }
                 .f-b-right{
-                    ul{
+                     ul{
                         display: flex;
                         align-items: center;
                         li{
@@ -337,6 +369,31 @@ export default {
                                 padding-left: 0;
                             }
                         }
+                    }
+                }
+            }
+            .f-b-bottom{
+                margin-top: 55px;
+                display: flex;
+                align-items: center;
+                .text{
+                    margin-left: 10px;
+                    ul{
+                        display: flex;
+                        li{
+
+                            a{
+                                color: #02a7e0;
+                            }
+                        }
+                    }
+                    p{
+                        font-size: 14px;
+                        color: #666666;
+                        margin: 10px 0;
+                    }
+                    p:nth-child(1){
+                        
                     }
                 }
             }
