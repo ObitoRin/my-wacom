@@ -65,8 +65,7 @@
                 <div class="f-b-right">
                     <ul>
                         <li class="share-box">
-                            <span @mouseenter.stop="shareHandle" @mouseleave="leaveHandle">分享到</span>
-                            <!-- <div @mouseenter.stop="shareHandle" @mouseleave="leaveHandle">
+                            <span @mouseenter="shareHandle" @mouseleave="leaveHandle">分享到
                                 <div class="share" v-show="share">
                                      <ul>
                                         <li><p>分享到</p></li>
@@ -81,7 +80,7 @@
                                         <li><a href="javascript:;">百度分享</a></li>
                                     </ul> 
                                 </div>
-                            </div> -->
+                            </span>
                         </li>
                         <li><a href="javascript:;"></a></li>
                         <li><a href="javascript:;"></a></li>
@@ -90,7 +89,7 @@
                         <li><a href="javascript:;"></a></li>
                     </ul>
                 </div>
-                <div class="share" v-show="share">
+                <!-- <div class="share" v-show="share">
                     <ul>
                         <li><span>分享到</span></li>
                         <li><a href="javascript:;">一键分享</a><a href="javascript:;">QQ空间</a></li>
@@ -103,7 +102,7 @@
                         <li><a href="javascript:;">和讯微博</a><a href="javascript:;">更多...</a></li>
                         <li><a href="javascript:;">百度分享</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <div class="f-b-bottom">
                 <div>
@@ -138,9 +137,6 @@ export default {
         leaveHandle(){
             this.share = false
         }
-    },
-    mounted(){
-        this.shareHandle()
     }
 }
 </script>
@@ -153,7 +149,8 @@ export default {
         .f-top{
             width: 80%;
             margin: 0 auto;
-            border: 1px solid salmon;
+            // border: 1px solid salmon;
+            padding: 45px 0;
             display: flex;
             justify-content: space-between;
             span,a{
@@ -222,7 +219,7 @@ export default {
         
         .f-bottom{
             width: 80%;
-            border: 1px solid yellowgreen;
+            // border: 1px solid yellowgreen;
             margin: 0 auto;
             padding: 45px 0;
             .f-b-top{
@@ -236,7 +233,7 @@ export default {
                     }
                 }
                 .f-b-right{
-                     ul{
+                    > ul{
                         display: flex;
                         align-items: center;
                         li{
@@ -264,9 +261,10 @@ export default {
                     }
                 }
                 .share{
-                    border: 1px solid skyblue;
+                    // border: 1px solid skyblue;
                     position: absolute;
-                    top: -265px;
+                    top: -222px;
+                    // top: 0;
                     right: 0;
                     z-index: 1;
                     ul{
@@ -278,9 +276,9 @@ export default {
                         }
                         li:first-child{
                             width: 210px;
-                            border: 1px solid salmon;
+                            border: 1px solid #F2F1F1;
                             padding: 5px 0 5px 5px;
-                            background-color: #F6F6F6;
+                            background-color: #F8F8F8;
                             span{
                                 color: #666666;
                                 font-size: 16px;
@@ -291,7 +289,7 @@ export default {
                             a{
                                 display: inline-block;
                                 width: 35%;
-                                border: 1px solid sandybrown;
+                                // border: 1px solid sandybrown;
                                 height: 17px;
                                 padding-left: 25px;
                                 margin-bottom: 5px;
@@ -365,6 +363,8 @@ export default {
                         }
                         li:nth-child(10){
                             text-align: right;
+                            border: 1px solid #F2F1F1;
+                            background-color: #F8F8F8;
                             a{
                                 padding-left: 0;
                             }
@@ -381,7 +381,7 @@ export default {
                     ul{
                         display: flex;
                         li{
-
+                            margin-right: 10px;
                             a{
                                 color: #02a7e0;
                             }
@@ -391,9 +391,6 @@ export default {
                         font-size: 14px;
                         color: #666666;
                         margin: 10px 0;
-                    }
-                    p:nth-child(1){
-                        
                     }
                 }
             }
