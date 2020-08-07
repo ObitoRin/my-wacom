@@ -5,6 +5,9 @@ const express = require('express')
 //引入body-parser 获取post方式传递的数据
 const bodyParser = require('body-parser')
 
+//引入cors中间件解决跨域
+const cors = require('cors')
+
 //引入用户路由接口
 const userRouter = require('./server-router/user.js')
 
@@ -17,6 +20,10 @@ app.listen(3000, () => {
 
 //托管public目录下的静态资源文件，以服务器的方式打开静态文件资源
 app.use(express.static('public'))
+
+app.use(cors({
+    origin:['http://127.0.0.1:8080','http://localhost:8080','http://192.168.13.49:8080']
+}))
 
 //使用中间件，将post请求的数据解析为对象
 app.use(bodyParser.urlencoded({

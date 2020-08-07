@@ -8,8 +8,8 @@
 
             <div class="right">
                 <ul>
-                    <li><a href="javascript:;">登录</a><span></span></li>
-                    <li><a href="javascript:;">注册</a><span></span></li>
+                    <li><router-link to="/login">登录</router-link><span></span></li>
+                    <li><router-link to="/register">注册</router-link><span></span></li>
                     <li>
                         <a href="javascript:;">关于Wacom</a>
                         <img src="../../public/img/index/a-icon.png" alt="">
@@ -44,7 +44,7 @@ export default {
         background: #000;
 
         .top-box{
-            width: 80%;
+            width: 1200px;
             height: 50px;
             margin: 0 auto;
             display: flex;

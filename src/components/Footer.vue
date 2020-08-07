@@ -147,9 +147,8 @@ export default {
         border-top: 1px #fff solid;
         padding: 50px 0;
         .f-top{
-            width: 80%;
+            width: 1200px;
             margin: 0 auto;
-            // border: 1px solid salmon;
             padding: 45px 0;
             display: flex;
             justify-content: space-between;
@@ -184,6 +183,7 @@ export default {
                 width: 20%;
                 display: flex;
                 justify-content: space-between;
+                transform: translateX(-60px);
                     ul{
                         width: 120px;
                         text-align: center;
@@ -218,8 +218,7 @@ export default {
         }
         
         .f-bottom{
-            width: 80%;
-            // border: 1px solid yellowgreen;
+            width: 1200px;
             margin: 0 auto;
             padding: 45px 0;
             .f-b-top{
@@ -261,10 +260,8 @@ export default {
                     }
                 }
                 .share{
-                    // border: 1px solid skyblue;
                     position: absolute;
-                    top: -222px;
-                    // top: 0;
+                    top: -245px;
                     right: 0;
                     z-index: 1;
                     ul{
@@ -289,7 +286,6 @@ export default {
                             a{
                                 display: inline-block;
                                 width: 35%;
-                                // border: 1px solid sandybrown;
                                 height: 17px;
                                 padding-left: 25px;
                                 margin-bottom: 5px;

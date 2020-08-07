@@ -1,15 +1,32 @@
 <template>
     <div class="login">
-        <div>
-            <label for="uname">用户名：</label>
-            <input type="text" v-model="uname" onblur="">
+        <div class="logo">
+            <img src="/img/user/logo.png">
         </div>
-        
-        <div>
-            <label for="uname">密码：</label>
-            <input type="password" v-model="upwd" onblur="">
+        <div class="content">
+            <div class="left">
+                <img src="/img/user/pic01.jpg">
+            </div>
+            <div class="right">
+                <ul>
+                    <li><img src="/img/user/wel.png"></li>
+                    <li><input type="text" v-model="uname" placeholder="Wacom账号"></li>
+                    <li><input type="password" v-model="upwd" placeholder="密码(9-32位字符)"></li>
+                    <li><button @click="login">登录</button></li>
+                </ul>
+                <p>您还不是Wacom账号用户，立即<router-link to="/register">免费注册</router-link></p>
+            </div>
         </div>
-        <button @click="login">登录</button>
+
+        <div class="text">
+            <ul>
+                <li><a href="javascript:;">使用条款</a></li>
+                <li><a href="javascript:;">隐私条款</a></li>
+                <li><a href="javascript:;">Cookie Notice</a></li>
+            </ul>
+            <p>Copyright © 2018 estore.wacom.com.cn 和冠科技（北京）有限公司All Rights Reserved. 京ICP备13037713号</p>
+            <p>为了给您提供更好的购物体验，推荐使用谷歌、360急速、IE10及以上版本浏览器访问本商城。</p>
+        </div>
     </div>
 </template>
 <script>
@@ -31,16 +48,93 @@ export default {
             console.log(data)
             this.axios.post(
                 '/user/login',
-                data
+                data,
+                {headers:{'Content-Type':'application/x-www-form-urlencoded'}}
+
             ).then((response)=>{
                 console.log(response.data)
+                if(response.data.code === 1){
+                    this.$message.success('登录成功')
+                    this.$router.push('/')
+                }else{
+                    this.$message.error('登录失败，用户名或密码错误')
+                }
             })
         }
     }
 }
 </script>
-<style lang="scss" scope>
+<style lang="scss">
+    *{box-sizing: border-box;}
     .login{
-        background-color:rgab(0,0,0,.3);
+        width: 1000px;
+        margin: 0 auto;
+        padding-top: 25px;
+        .content{
+            display: flex;
+            .left{
+
+            }
+            .right{
+                padding: 64px 28px 0 50px;
+                ul{
+                    li{
+                        margin-bottom: 15px;
+                        input{
+                            width: 240px;
+                            padding: 0 10px;
+                            height: 32px;
+                            border: #bcbcbc solid 1px;
+                            line-height: 32px;
+                            font-size: 14px;
+                            color: #999;
+                            &:focus{
+                                border: 2px solid #000;
+                                border-radius: 5px;
+                            }
+                        }
+                        button{
+                            width: 120px;
+                            height: 40px;
+                            border: 0;
+                            border-radius: 5px;
+                            background-color: #02A7E0;
+                            color: #fff;
+                        }
+                    }
+                }
+                p{
+                    border-top: #dcdcdc solid 1px;
+                    padding: 25px 0 0 20px;
+                    margin-top: 25px;
+                    font-size: 12px;
+                    a{
+                        font-size: 16px;
+                        color: #ff6000;
+                    }
+                }
+            }
+        }
+        .text{
+            padding-top: 35px;
+            border-top: 1px solid #999999;
+            ul{
+                display: flex;
+                justify-content: center;
+                li{
+                    margin: 0 3px;
+                    a{
+                        font-size: 12px;
+                        color: #02a7e0;
+                    }
+                }
+            }
+            p{
+                text-align: center;
+                font-size: 12px;
+                color: #999999;
+                margin: 5px 0;
+            }
+        }
     }
 </style>

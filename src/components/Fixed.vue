@@ -69,7 +69,7 @@ export default {
         background-color: #000;
         position: fixed;
         top: 0;
-        left: 1235px;
+        left: 1450px;
             ul{
                 li{
                     text-align: center;
