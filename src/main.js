@@ -4,8 +4,9 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import Antd from 'ant-design-vue'
-import 'ant-design-vue/dist/antd.css';
+import 'ant-design-vue/dist/antd.css'
 Vue.use(Antd);
+
 
 //配置axios默认的请求路径
 axios.defaults.baseURL = 'http://localhost:3000/'
