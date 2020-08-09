@@ -72,6 +72,7 @@ export default {
         padding-top: 25px;
         .content{
             display: flex;
+            margin: 30px 0;
             .left{
 
             }
@@ -116,7 +117,7 @@ export default {
             }
         }
         .text{
-            padding-top: 35px;
+            padding: 35px 0;
             border-top: 1px solid #999999;
             ul{
                 display: flex;

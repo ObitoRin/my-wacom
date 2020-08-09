@@ -87,6 +87,7 @@ export default {
                             fill: white;
                             padding-top: 4px;
                             font-size: 12px;
+                            transform: translate(0);
                         }
                         span{
                             display: block;
@@ -106,6 +107,7 @@ export default {
                             fill: white;
                             padding-top: 4px;
                             font-size: 12px;
+                            transform: translate(0);
                         }
                         &:hover{
                             background-color: #078DCC;
