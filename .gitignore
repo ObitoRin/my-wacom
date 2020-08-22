@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 /dist
-wacom.sql
 project.txt
 README.md
 
