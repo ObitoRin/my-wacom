@@ -53,7 +53,11 @@ export default {
 
             ).then((response)=>{
                 console.log(response.data)
+                console.log(response.data.result)
+                console.log(response.data.result.uname)
                 if(response.data.code === 1){
+                    //调用Vuex中Mutations来修改state中的状态
+                    this.$store.commit('login_mutations',response.data.result)
                     this.$message.success('登录成功')
                     this.$router.push('/')
                 }else{

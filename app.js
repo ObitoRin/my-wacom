@@ -9,7 +9,8 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 //引入用户路由接口
-const userRouter = require('./server-router/user.js')
+const userRouter = require('./server/user.js')
+const proRouter = require('./server/product.js')
 
 //创建web服务器
 const app = express()
@@ -22,7 +23,7 @@ app.listen(3000, () => {
 app.use(express.static('public'))
 
 app.use(cors({
-    origin:['http://127.0.0.1:8080','http://localhost:8080','http://192.168.13.49:8080']
+    origin:['http://127.0.0.1:8080','http://localhost:8080','http://localhost:8080','http://192.168.13.49:8080']
 }))
 
 //使用中间件，将post请求的数据解析为对象
@@ -32,3 +33,4 @@ app.use(bodyParser.urlencoded({
 
 //添加前缀 访问形式;并挂载用户路由
 app.use('/user', userRouter)
+app.use('/product', proRouter)

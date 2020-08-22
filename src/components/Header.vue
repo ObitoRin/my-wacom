@@ -1,29 +1,46 @@
 <template>
     <header>
-        <div class="top-box">
+        <div class="top-box" v-if="!this.$store.state.isLogin">
             <div class="left">
                 <span>欢迎来到Wacom官方商城！</span>
                 <span>在线客服(周一至周日9:00-18:00)</span>
             </div>
-
             <div class="right">
                 <ul>
                     <li><router-link to="/login">登录</router-link><span></span></li>
                     <li><router-link to="/register">注册</router-link><span></span></li>
                     <li>
                         <a href="javascript:;">关于Wacom</a>
-                        <img src="../../public/img/index/a-icon.png" alt="">
+                        <img src="/img/index/a-icon.png" alt="">
                         <span></span>
                         <ul class="down-box">
                             <li>
-                                <img src="../../public/img/index/olia.png" alt="">
+                                <img src="/img/index/olia.png" alt="">
                                 <a href="javascript:;">官方微博</a>
                             </li>
                             <li>
-                                <img src="../../public/img/index/olia.png" alt="">
+                                <img src="/img/index/olia.png" alt="">
                                 <a href="javascript:;">品牌介绍</a>
                             </li>
                         </ul>
+                    </li>
+                    <li><a href="javascript:;">我的订单</a></li>
+                    <li><a href="javascript:;">购物车</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="top-box" v-else>
+            <div class="left">
+                <span>欢迎来到Wacom官方商城！</span>
+                <span>在线客服(周一至周日9:00-18:00)</span>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="javascript:;">{{this.$store.state.username}}</a></li>
+                    <li>
+                        <a href="javascript:;">关于Wacom</a>
+                        <img src="/img/index/a-icon.png" alt="">
                     </li>
                     <li><a href="javascript:;">我的订单</a></li>
                     <li><a href="javascript:;">购物车</a></li>

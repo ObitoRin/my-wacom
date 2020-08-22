@@ -21,7 +21,7 @@ router.post('/login', (req, res) => {
     pool.query(sql, [uname, upwd], (err, result)=>{
         if(err) throw err
         //查询数据库表中的数据，有当前输入的账号和密码就可以登录成功
-        if(result.length > 0) return res.send({code: 1, msg: 'success'})
+        if(result.length > 0) return res.send({code: 1, msg: 'success', result: result[0]})
         res.send({code: 0, msg: 'fail'})
     })
 })

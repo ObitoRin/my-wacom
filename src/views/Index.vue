@@ -55,58 +55,43 @@
                         </ul>
                     </a-tab-pane>
                     <a-tab-pane key="2" tab="所有产品">
-                        Content of Tab Pane 2
+                        <!-- Content of Tab Pane 2 -->
                     </a-tab-pane>
                     <a-tab-pane key="3" tab="数位板">
-                        Content of Tab Pane 3
+                        <!-- Content of Tab Pane 3 -->
                     </a-tab-pane>
                     <a-tab-pane key="4" tab="数位屏">
-                        Content of Tab Pane 3
+                        <!-- Content of Tab Pane 3 -->
                     </a-tab-pane>
                     <a-tab-pane key="5" tab="移动电脑">
-                        Content of Tab Pane 3
+                        <!-- Content of Tab Pane 3 -->
                     </a-tab-pane>
                     <a-tab-pane key="6" tab="Bamboo">
-                        Content of Tab Pane 3
+                        <!-- Content of Tab Pane 3 -->
                     </a-tab-pane>
                     <a-tab-pane key="7" tab="原装配件">
-                        Content of Tab Pane 3
+                        <!-- Content of Tab Pane 3 -->
                     </a-tab-pane>
                     <a-tab-pane key="8" tab="在线教育">
-                        Content of Tab Pane 3
+                        <!-- Content of Tab Pane 3 -->
                     </a-tab-pane>
                     <a-tab-pane key="9" tab="下载专区">
-                        Content of Tab Pane 3
+                        <!-- Content of Tab Pane 3 -->
                     </a-tab-pane>
                 </a-tabs>
             </div>
         </nav>
         <main>
             <ul>
-                <li>
-                    <a href="javascript:;">
-                        <h5>官方验证开封品</h5>
-                        <p>官方验证，完整配件与产品功能完好 新帝 低至6折</p>
-                        <span>¥3499起 </span>
-                        <img src="/img/index/202003031136532621.png" alt="">
-                    </a>
+                <li v-for="(item, index) of bigPro" :key="index">
+                    <router-link to="">
+                        <h5>{{item.title}}</h5>
+                        <p>{{item.details}}</p>
+                        <span>{{item.price}} </span>
+                        <img :src="item.images">
+                    </router-link>
                 </li>
-                <li>
-                    <a href="javascript:;">
-                        <h5>官方验证开封品</h5>
-                        <p>官方验证，完整配件与产品功能完好 新帝 低至6折</p>
-                        <span>¥3499起 </span>
-                        <img src="/img/index/202003031136532621.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <h5>官方验证开封品</h5>
-                        <p>官方验证，完整配件与产品功能完好 新帝 低至6折</p>
-                        <span>¥3499起 </span>
-                        <img src="/img/index/202003031136532621.png" alt="">
-                    </a>
-                </li>
+                
                 <li>
                     <div>
                         <a href="javascript:;">
@@ -124,8 +109,74 @@
                     </div>
                 </li>
             </ul>
-            <div></div>
+            <div class="life">
+                <div class="life-head">
+                    <h3>Bamboo智能生活科技</h3>
+                    <a href="javascript:;">查看更多</a>
+                </div>
+                <div class="banner">
+                    <img src="/img/index/201805311631545473.jpg">
+                </div>
+                <div class="life-bottom">
+                    <div class="b-left">
+                        <h5>Bamboo Slate</h5>
+                        <p>单开  智能笔记事数位本</p>
+                        <span>¥999起</span>
+                        <img src="/img/index/201708151449304349.png">
+                    </div>
+                    <div class="b-right">
+                        <ul>
+                            <li v-for="(item, index) of lifePro" :key="index">
+                                <img :src="item.images">
+                                <h5>{{item.title}}</h5>
+                                <p>{{item.details}}</p>
+                                <span>{{item.price}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="sort">
+                <div class="sort-head">
+                    <h3>全线产品分类</h3>
+                    <ul>
+                        <li ref="tabOne" class="tab-one" @click="tabs"></li>
+                        <li ref="tabTwo" class="tab-two" @click="tabs"></li>
+                    </ul>
+                </div>
+                <div class="sortPro" v-if="sortShow">
+                    <div v-for="(item, index) of sortProOne" :key="index">
+                        <div class="sp-left" :style="{background:item.bgLeft}">
+                            <h3>{{item.title}}</h3>
+                            <p>⁡⁢⁡⁢⁡⁢⁡⁢{{item.details}}</p>
+                        </div>
+                        <div class="sp-right" :style="{background:item.bgRight}">
+                            <a href="javascript:;">
+                                <img :src="item.images">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sortPro" v-else>
+                    <div v-for="(item, index) of sortProTwo" :key="index">
+                        <div class="sp-left" :style="{background:item.bgLeft}">
+                            <h3>{{item.title}}</h3>
+                            <p>⁡⁢⁡⁢⁡⁢⁡⁢{{item.details}}</p>
+                        </div>
+                        <div class="sp-right" :style="{background:item.bgRight}">
+                            <a href="javascript:;">
+                                <img :src="item.images">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
+        <div>
+            <a-back-top />
+            <strong style="color: rgba(64, 64, 64, 0.6)"></strong>
+            
+        </div>
         <Footer></Footer>
     </div>
 </template>
@@ -152,17 +203,49 @@ export default {
                 {url: '/img/index/banner05.jpg'},
                 {url: '/img/index/banner06.jpg'},
                 {url: '/img/index/banner07.jpg'}
-            ]
-            
+            ],
+            bigPro: [],//banner商品
+            lifePro: [],//生活科技
+            sortProOne: [], //产品分类
+            sortProTwo: [],
+            sortShow: true
         }
+    },
+    methods:{
+        tabs(e){
+            if(e.target.className == 'tab-one'){
+                this.$refs.tabOne.style.background = 'url(/img/index/prev.png) no-repeat center'
+                this.$refs.tabTwo.style.background = 'url(/img/index/next-hover.png) no-repeat center'
+                this.sortShow = true
+            }else if(e.target.className == 'tab-two'){
+                this.$refs.tabOne.style.background = 'url(/img/index/prev-hover.png) no-repeat center'
+                this.$refs.tabTwo.style.background = 'url(/img/index/next.png) no-repeat center'
+                this.sortShow = false
+
+            }
+        }
+    },
+    mounted(){
+        this.axios.get('/product/bigPro')
+        .then(response=>{
+            this.bigPro = response.data
+        })
+
+         this.axios.get('/product/lifePro')
+        .then(response=>{
+            this.lifePro = response.data
+        })
+        this.axios.get('/product/sortProOne')
+        .then(response=>{
+            this.sortProOne = response.data
+        })
+        this.axios.get('/product/sortProTwo')
+        .then(response=>{
+            this.sortProTwo = response.data
+        })
     }
     
 }
-
-/*
-      
-      
-      */
 </script>
 
 <style lang="scss">
@@ -259,8 +342,183 @@ body{background: #f4f6f7;}
               } 
             }
         }
-    
+        > .life{
+            .life-head{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                > h3{
+                    color: #666666;
+                    font-size: 28px;
+                }
+                > a{
+                    color: #666666;
+                    font-size: 14px;
+                    margin-right: 40px;
+                    padding-right: 25px;
+                    background: url(/img/index/more.png) no-repeat right center;
+                    &:hover{
+                        color: #02a7e0;
+                    }
+                }
+            }
+            .life-banner{
+                margin-top: 20px;
+            }
+            .life-bottom{
+                margin-top: 20px;
+                display: flex;
+                > .b-left{
+                    width: 250px;
+                    margin-right: 20px;
+                    background: #fff;
+                    border: 1px #dbdbdb solid;
+                    padding: 40px 22px 0 22px;
+                    height: 558px;
+                    > h5{
+                        text-align: center;
+                        font-size: 20px;
+                        font-weight: 500;
+                        margin-top: 38px;
+                    }
+                    > p{
+                        margin-top: 39px;
+                        line-height: 20px;
+                        color: #b0b0b0;
+                        text-align: center;
+                    }
+                    > span{
+                        display: block;
+                        color: #078dcc;
+                        text-align: center;
+                        font-size: 18px;
+                        margin-top: 35px;
+                    }
+                    > img{
+                        margin-top: 35px;
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+                > .b-right{
+                    width: 990px;
+                    > ul {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+                        > li{
+                            width: 233px;
+                            height: 266px;
+                            background: #fff;
+                            border: 1px #dbdbdb solid;
+                            padding: 11px 10px;
+                            margin-bottom: 26px;
+                            position: relative;
+                            &:hover{
+                                top: -2px;
+                                box-shadow: 0 0 20px #969696;
+                            }
+                            > img{
+                                width: 100%;
+                                height: auto;
+                            }
+                            > h5{
+                                font-size: 20px;
+                                text-align: center;
+                                font-weight: 500;
+                                margin: 15px 0;
+                            }
+                            > p{
+                                margin: 0 15px;
+                                color: #b0b0b0;
+                                text-align: center;
+                            }
+                            > span{
+                                display: block;
+                                text-align: center;
+                                color: #078dcc;
+                                margin-top: 8px;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        > .sort{
+            .sort-head{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                > h3{
+                    color: #666666;
+                    font-size: 28px;
+                } 
+                > ul{
+                display: flex;
+                    > li{
+                        display: block;
+                        width: 46px;
+                        height: 24px;
+                        border: 1px #ccc solid;
+                        cursor: pointer;
+                    }
+                    > li:first-child{
+                        background: url(/img/index/prev.png) no-repeat center;                        
+                    }
+                    > li:last-child{
+                        background: url(/img/index/next-hover.png) no-repeat center;
+                    }
+                }
+            }
+            .sortPro{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > div{
+                    height: 245px;
+                    display: flex;
+                    margin-bottom: 10px;
+                    .sp-left{
+                        padding: 60px 40px;
+                        background: #67b687;
+                        > h3{
+                            text-align: center;
+                            width: 120px;
+                            color: #fff;
+                            font-size: 20px;
+                            font-weight: 500;
+                            border-top: 3px solid #fff;
+                            border-bottom: 3px solid #fff;
+                            margin-bottom: 0;
+                        }
+                        > p{
+                            line-height: 20px;
+                            color: #fff;
+                        }
+                    }
+                    .sp-right{
+                        width: 390px;
+                        height: 245px;
+                        text-align: center;
+                        > a {
+                            > img{
+                                    width: auto;
+                                    height: 170px;
+                                    margin-top: 44px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+
+
+
+
+
+
     nav{
         width: 1200px;
         margin: 0 auto;
@@ -369,10 +627,10 @@ body{background: #f4f6f7;}
     font-size: 25px;
     color: #fff;
     background-color: rgba(31, 45, 61, 0.11);
-    // opacity: 0.3;
+    
     }
     .ant-carousel >>> .custom-slick-arrow:before {
-        // display: none;
+        
     }
     .ant-carousel >>> .custom-slick-arrow:hover {
         opacity: 0.5;
