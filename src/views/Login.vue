@@ -52,15 +52,17 @@ export default {
                 {headers:{'Content-Type':'application/x-www-form-urlencoded'}}
 
             ).then((response)=>{
-                console.log(response.data)
-                console.log(response.data.result)
-                console.log(response.data.result.uname)
                 if(response.data.code === 1){
                     //调用Vuex中Mutations来修改state中的状态
                     this.$store.commit('login_mutations',response.data.result)
+
+                    sessionStorage.setItem('isLogin', true)
+                    sessionStorage.setItem('username', response.data.result.uname)
+                    
                     this.$message.success('登录成功')
                     this.$router.push('/')
-                }else{
+                }
+                if(response.data.code === 0){
                     this.$message.error('登录失败，用户名或密码错误')
                 }
             })

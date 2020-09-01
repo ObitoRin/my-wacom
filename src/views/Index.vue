@@ -34,12 +34,12 @@
                                     <div class="pro-box">
                                         <ul>
                                             <li>
-                                                <img src="/img/index/202002282145002989.jpg" alt="">
+                                                <img src="/img/index/202002282145002989.jpg">
                                                 <h4>CTL-472/ K1-FX</h4>
                                                 <a href="javascript:;">查看</a>
                                             </li>
                                             <li>
-                                                <img src="/img/index/202002282145002989.jpg" alt="">
+                                                <img src="/img/index/202002282145002989.jpg">
                                                 <h4>CTL-472/ K1-FX</h4>
                                                 <a href="javascript:;">查看</a>
                                             </li>
@@ -84,28 +84,28 @@
         <main>
             <ul>
                 <li v-for="(item, index) of bigPro" :key="index">
-                    <router-link to="">
+                    <router-link :to="'/product/' + item.num">
                         <h5>{{item.title}}</h5>
                         <p>{{item.details}}</p>
                         <span>{{item.price}} </span>
-                        <img :src="item.images">
+                            <img :src="item.images">
                     </router-link>
                 </li>
                 
                 <li>
                     <div>
-                        <a href="javascript:;">
+                        <router-link :to="'/product/' + 20">
                             <h6>Wacom Intuos Pro</h6>
                             <p>新一代影拓Pro 数位板 8192压感 </p>
-                            <img src="/img/index/202003031137017759.png" alt="">
-                        </a>
+                            <img src="/img/index/202003031137017759.png">
+                        </router-link>
                     </div>
                     <div>
-                        <a href="javascript:;">
-                            <h6>Wacom Intuos Pro</h6>
-                            <p>新一代影拓Pro 数位板 8192压感 </p>
-                            <img src="/img/index/202003031137017759.png" alt="">
-                        </a>
+                        <router-link :to="'/product/' + 21">
+                            <h6>Wacom 官方配件</h6>
+                            <p>官方配件可让您创作更方便</p>
+                            <img src="/img/index/202003031137017759.png">
+                        </router-link>
                     </div>
                 </li>
             </ul>
@@ -119,18 +119,22 @@
                 </div>
                 <div class="life-bottom">
                     <div class="b-left">
-                        <h5>Bamboo Slate</h5>
-                        <p>单开  智能笔记事数位本</p>
-                        <span>¥999起</span>
-                        <img src="/img/index/201708151449304349.png">
+                        <router-link :to="'/product/' + 22">
+                            <h5>Bamboo Slate</h5>
+                            <p>单开  智能笔记事数位本</p>
+                            <span>¥999起</span>
+                            <img src="/img/index/201708151449304349.png">
+                        </router-link>
                     </div>
                     <div class="b-right">
                         <ul>
                             <li v-for="(item, index) of lifePro" :key="index">
-                                <img :src="item.images">
-                                <h5>{{item.title}}</h5>
-                                <p>{{item.details}}</p>
-                                <span>{{item.price}}</span>
+                                <router-link :to="'/product/' + item.num">
+                                    <img :src="item.images">
+                                    <h5>{{item.title}}</h5>
+                                    <p>{{item.details}}</p>
+                                    <span>{{item.price}}</span>
+                                </router-link>
                             </li>
                         </ul>
                     </div>
@@ -151,9 +155,9 @@
                             <p>⁡⁢⁡⁢⁡⁢⁡⁢{{item.details}}</p>
                         </div>
                         <div class="sp-right" :style="{background:item.bgRight}">
-                            <a href="javascript:;">
+                            <router-link :to="'/product/' + item.num">
                                 <img :src="item.images">
-                            </a>
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -164,9 +168,9 @@
                             <p>⁡⁢⁡⁢⁡⁢⁡⁢{{item.details}}</p>
                         </div>
                         <div class="sp-right" :style="{background:item.bgRight}">
-                            <a href="javascript:;">
+                            <router-link :to="'/product/' + item.num">
                                 <img :src="item.images">
-                            </a>
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -204,11 +208,11 @@ export default {
                 {url: '/img/index/banner06.jpg'},
                 {url: '/img/index/banner07.jpg'}
             ],
-            bigPro: [],//banner商品
-            lifePro: [],//生活科技
+            bigPro: [], //banner商品
+            lifePro: [], //生活科技
             sortProOne: [], //产品分类
             sortProTwo: [],
-            sortShow: true
+            sortShow: true //底部tab切换
         }
     },
     methods:{
@@ -375,29 +379,31 @@ body{background: #f4f6f7;}
                     border: 1px #dbdbdb solid;
                     padding: 40px 22px 0 22px;
                     height: 558px;
-                    > h5{
-                        text-align: center;
-                        font-size: 20px;
-                        font-weight: 500;
-                        margin-top: 38px;
-                    }
-                    > p{
-                        margin-top: 39px;
-                        line-height: 20px;
-                        color: #b0b0b0;
-                        text-align: center;
-                    }
-                    > span{
-                        display: block;
-                        color: #078dcc;
-                        text-align: center;
-                        font-size: 18px;
-                        margin-top: 35px;
-                    }
-                    > img{
-                        margin-top: 35px;
-                        width: 100%;
-                        height: auto;
+                    > a{
+                        > h5{
+                            text-align: center;
+                            font-size: 20px;
+                            font-weight: 500;
+                            margin-top: 38px;
+                        }
+                        > p{
+                            margin-top: 39px;
+                            line-height: 20px;
+                            color: #b0b0b0;
+                            text-align: center;
+                        }
+                        > span{
+                            display: block;
+                            color: #078dcc;
+                            text-align: center;
+                            font-size: 18px;
+                            margin-top: 35px;
+                        }
+                        > img{
+                            margin-top: 35px;
+                            width: 100%;
+                            height: auto;
+                        }
                     }
                 }
                 > .b-right{
@@ -418,27 +424,29 @@ body{background: #f4f6f7;}
                                 top: -2px;
                                 box-shadow: 0 0 20px #969696;
                             }
-                            > img{
+                            > a{
+                                > img{
                                 width: 100%;
                                 height: auto;
-                            }
-                            > h5{
-                                font-size: 20px;
-                                text-align: center;
-                                font-weight: 500;
-                                margin: 15px 0;
-                            }
-                            > p{
-                                margin: 0 15px;
-                                color: #b0b0b0;
-                                text-align: center;
-                            }
-                            > span{
-                                display: block;
-                                text-align: center;
-                                color: #078dcc;
-                                margin-top: 8px;
-                                font-size: 18px;
+                                }
+                                > h5{
+                                    font-size: 20px;
+                                    text-align: center;
+                                    font-weight: 500;
+                                    margin: 15px 0;
+                                }
+                                > p{
+                                    margin: 0 15px;
+                                    color: #b0b0b0;
+                                    text-align: center;
+                                }
+                                > span{
+                                    display: block;
+                                    text-align: center;
+                                    color: #078dcc;
+                                    margin-top: 8px;
+                                    font-size: 18px;
+                                }
                             }
                         }
                     }

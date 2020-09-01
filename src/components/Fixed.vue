@@ -62,7 +62,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .fixed{
         width: 40px;
         padding-top: 100px;
@@ -70,6 +70,7 @@ export default {
         position: fixed;
         top: 0;
         left: 1450px;
+        z-index: 99;
             ul{
                 li{
                     text-align: center;

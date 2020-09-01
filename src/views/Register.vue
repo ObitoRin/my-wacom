@@ -123,7 +123,8 @@ export default {
                         this.$message.success('注册成功')
                         this.$router.push('/login')
                     }else{
-                        this.$message.error('用户名或邮箱已存在，请重新输入')
+                        this.$message.error('用户名或邮箱已存在，请重新输入',100)
+                        //ant-message-custom-content ant-message-error
                     }
                 })
             }else{

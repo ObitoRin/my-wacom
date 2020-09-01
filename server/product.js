@@ -10,7 +10,7 @@ const pool = require('./pool.js')
 const router = express.Router()
 
 router.get('/bigPro',(req, res)=>{
-    let sql = 'SELECT uid,title,details,price,images FROM product'
+    let sql = 'SELECT uid,title,details,price,images,num FROM product'
     pool.query(sql, (err, result)=>{
         if(err) throw err
         res.send(result)
@@ -18,7 +18,7 @@ router.get('/bigPro',(req, res)=>{
 })
 
 router.get('/lifePro',(req, res)=>{
-    let sql = 'SELECT uid,title,details,price,images FROM proLife'
+    let sql = 'SELECT uid,title,details,price,images,num FROM proLife'
     pool.query(sql, (err, result)=>{
         if(err) throw err
         res.send(result)
@@ -26,7 +26,7 @@ router.get('/lifePro',(req, res)=>{
 })
 
 router.get('/sortProOne',(req, res)=>{
-    let sql = 'SELECT uid,title,details,images,bgLeft,bgRight FROM sortProOne'
+    let sql = 'SELECT uid,title,details,images,bgLeft,bgRight,num FROM sortProOne'
     pool.query(sql, (err, result)=>{
         if(err) throw err
         res.send(result)
@@ -34,7 +34,7 @@ router.get('/sortProOne',(req, res)=>{
 })
 
 router.get('/sortProTwo',(req, res)=>{
-    let sql = 'SELECT uid,title,details,images,bgLeft,bgRight FROM sortProTwo'
+    let sql = 'SELECT uid,title,details,images,bgLeft,bgRight,num FROM sortProTwo'
 
     pool.query(sql, (err, result)=>{
         if(err) throw err
@@ -42,4 +42,21 @@ router.get('/sortProTwo',(req, res)=>{
     })
 })
 
+router.get('/productPage',(req, res)=>{
+    //根据id的获取对应的产品信息
+    let uid = req.query.uid
+    let sql = 'SELECT uid,title,details,price,codename,stock,images FROM productPage WHERE uid=?'
+    pool.query(sql, [uid], (err, result)=>{
+        if(err) throw err
+        res.send(result)
+    })
+})
+
+router.get('/addresses',(req, res)=>{
+    let sql = 'SELECT addresses FROM addresses'
+    pool.query(sql, (err, result)=>{
+        if(err) throw err
+        res.send(result)
+    })
+})
 module.exports = router
