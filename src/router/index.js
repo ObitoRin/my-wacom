@@ -44,9 +44,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to,from,next)=> { 
-  console.log(store)
   let isLogin = store.state.isLogin
-  console.log(isLogin)
   if(to.meta.guard){  
     if(isLogin){  //判断是否为true
       next()

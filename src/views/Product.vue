@@ -58,7 +58,7 @@
                     <div class="count">
                         <span>购买数量：</span>
                         <button @click="decrease">-</button>
-                        <input type="text" :value="count">
+                        <input type="text" v-model="count">
                         <button @click="add">+</button>
                     </div>
                     <div class="contact">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="buy">
                         <a href="javascript:;">立即购买</a>
-                        <router-link to="/cart" @click="cart">加入购物车</router-link>
+                        <a @click="cart">加入购物车</a>
                         <a href="javascript:;">加入收藏</a>
                     </div>
                 </div>
@@ -87,7 +87,8 @@ export default {
         return{
             proList: [],//对应id的产品信息
             address: [],//地址
-            count: 1//购买数量
+            count: 1//购买数量,
+
         }
     },
     methods: {
@@ -103,14 +104,22 @@ export default {
         add(){
             this.count ++
         },
+        //点击添加商品到购物车
         cart(){
+            //存储当前商品所有信息和购买数量
+            //每次添加到一个大数组中
+            this.$message.success('添加成功')
+            // sessionStorage.setItem('proList', JSON.stringify(this.proList))
+            // sessionStorage.setItem('proCount', this.count)
 
+            //把当前商品数量添加到商品信息列表中, proList是个数组含有一个对象包含商品信息, 只有一个就[0]把对象取出来
+            this.proList[0].count = this.count
+            //再把这个对象添加到购物车数组中
+            this.$store.state.shopCart.push(this.proList[0])
+            sessionStorage.setItem('shopCart', JSON.stringify(this.$store.state.shopCart))
         }
     },
     mounted() {
-        //路由守卫 判断有无登录,登录再跳购物车,未登录就提示再跳注册
-        //根据商品数量循环创建对应的购物车商品列表
-        
         //根据商品对应的编号获取对应的商品数据
         this.axios.get(
             '/product/productPage',

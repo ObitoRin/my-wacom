@@ -11,14 +11,14 @@
                 
             </li>
             <li>
-                <a href="javascript:;">
+                <router-link to="/cart">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-iconset0308"></use>
                     </svg>
                     <span>购</span>
                     <span>物</span>
                     <span>车</span>
-                </a>
+                </router-link>
             </li>
             <li>
                 <a href="javascript:;">

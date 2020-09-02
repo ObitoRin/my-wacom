@@ -43,7 +43,7 @@
                         <img src="/img/index/a-icon.png" alt="">
                     </li>
                     <li><a href="javascript:;">我的订单</a></li>
-                    <li><a href="javascript:;">购物车</a></li>
+                    <li><router-link to='/cart'>购物车</router-link></li>
                 </ul>
             </div>
         </div>
