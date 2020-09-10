@@ -16,59 +16,67 @@
                 </h2>
             </div>
             <table class="tab01_js" width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tbody>
-                <tr>
-                    <th width="7%"><input class="selectitemAll" name="checkbox" type="checkbox"><label>全选</label></th>
-                    <th width="57%">商品</th>
-                    <th width="17%">价格</th>
-                    <th width="7%">数量</th>
-                    <th width="12%">操作</th>
-                </tr>
-              <tr v-for="(item, index) of shopCart" :key="index">
-                <td>
-                    <input name="selectitem" type="checkbox">
-                </td>
-                <td class="td01_js">
-                    <div class="details">
-                        <router-link :to="'/product/' + item.uid">
-                            <img :src="item.images">
-                        </router-link>
-                        <p class="blue_js">
-                            <router-link :to="'/product/' + item.uid">
-                                {{item.details}}
-                            </router-link>
-                            <br>
-                            <span>商品编号：{{item.codename}}</span>
-                        </p>
-                    </div>
-                </td>
-                <td>{{(item.price * item.count).toFixed(2)}}</td>
-                <td>
-                    <div id="choose-amount">
-                        <div class="wrap-input">
-                            <a href="javascript:;" @click="decrease(index)" class="btn-reduce">减少数量</a>
-                            <a href="javascript:;" @click="add(index)" class="btn-add">增加数量</a>
-                            <input :value="item.count" class="text">
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <a-popconfirm
-                        title="确认删除该商品吗?"
-                        ok-text="Yes"
-                        cancel-text="No"
-                        @confirm="confirm(index)"
-                    >
-                        <!-- <a href="javascript:;" class="blue_js" @click="deleteShop(index)">删除</a> -->
-                        <a href="javascript:;" class="blue_js">删除</a>
-                    </a-popconfirm>
-                </td>
-            </tr>
-            总价:{{totalPrice}}
-               
-        </tbody>
-        </table>
-        
+                <tbody>
+                    <tr>
+                        <th width="7%"><input class="selectitemAll" name="checkbox" type="checkbox"><label>全选</label></th>
+                        <th width="57%">商品</th>
+                        <th width="17%">价格</th>
+                        <th width="7%">数量</th>
+                        <th width="12%">操作</th>
+                    </tr>
+                    <tr v-for="(item, index) of shopCart" :key="index">
+                        <td>
+                            <input name="selectitem" type="checkbox">
+                        </td>
+                        <td class="td01_js">
+                            <div class="details">
+                                <router-link :to="'/product/' + item.uid">
+                                    <img :src="item.images">
+                                </router-link>
+                                <p class="blue_js">
+                                    <router-link :to="'/product/' + item.uid">
+                                        {{item.details}}
+                                    </router-link>
+                                    <br>
+                                    <span>商品编号：{{item.codename}}</span>
+                                </p>
+                            </div>
+                        </td>
+                        <td>{{(item.price * item.count).toFixed(2)}}</td>
+                        <td>
+                            <div id="choose-amount">
+                                <div class="wrap-input">
+                                    <a href="javascript:;" @click="decrease(index)" class="btn-reduce">减少数量</a>
+                                    <a href="javascript:;" @click="add(index)" class="btn-add">增加数量</a>
+                                    <input :value="item.count" class="text">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <a-popconfirm
+                                title="确认删除该商品吗?"
+                                ok-text="Yes"
+                                cancel-text="No"
+                                @confirm="confirm(index)"
+                            >
+                                <!-- <a href="javascript:;" class="blue_js" @click="deleteShop(index)">删除</a> -->
+                                <a href="javascript:;" class="blue_js">删除</a>
+                            </a-popconfirm>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="box04">
+                <div class="box04_l fl ">
+                    <span class="p_sty03 ">共选中 <b id="Qty">0</b> 件商品　共计 <em class="red_js">￥ <b id="AllMoney">{{totalPrice}}</b> </em></span>
+                    <span class="p_sty01"><input name="checkbox" class="selectitemAll" type="checkbox" value=""><label>全选</label></span>
+                    <span class="p_sty02 red_js" style="display: none;">删除选中商品</span>
+                </div>
+                <div class="box04_r fr">
+                    <input type="submit" class="btn03" value="" id="btnsubmit">
+                </div>
+            </div>
         </div>
         <Footer/>
     </section>
